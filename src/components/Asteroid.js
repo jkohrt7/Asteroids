@@ -14,24 +14,25 @@ function Asteroid(props) {
         mesh.current.rotation.x = mesh.current.rotation.y += 0.001
     });
 
-    // const [normalTexture] = useNormalTexture(
-    //     1,
-    //     {
-    //         repeat: [8,8],
-    //         anisotropy: 8
-    //     }
-    // )
+    const [normalTexture] = useNormalTexture(
+        54,
+        {
+            repeat: [3,3],
+            anisotropy: 8
+        }
+    )
     
     // draw the box
     return (
         <mesh {...props} ref={mesh}>
-            <icosahedronGeometry args={[props.radius, 2]} />
+            <icosahedronGeometry args={[props.radius, 6]} />
             <MeshDistortMaterial 
                 attach="material" 
                 distort={1} 
                 speed={0} 
                 color="#3a3b3c"
-                // normalMap={normalTexture}
+                normalMap={normalTexture}
+                flatShading={false}
                 />
         </mesh>
     );
