@@ -2,8 +2,6 @@ import { useLoader, useFrame } from '@react-three/fiber';
 import { useRef } from 'react';
 import propTypes from 'prop-types';
 
-import AsteroidTexture from '../img/asteroid.jpg'
-
 import { MeshDistortMaterial, useNormalTexture } from '@react-three/drei';
 
 function Asteroid(props) {
@@ -25,14 +23,14 @@ function Asteroid(props) {
     // draw the box
     return (
         <mesh {...props} ref={mesh}>
-            <icosahedronGeometry args={[props.radius, 6]} />
+            <icosahedronGeometry args={[props.radius, 8]} />
             <MeshDistortMaterial 
                 attach="material" 
                 distort={1} 
+                radius={2}
                 speed={0} 
-                color="#3a3b3c"
+                color="#47494a"
                 normalMap={normalTexture}
-                flatShading={false}
                 />
         </mesh>
     );
