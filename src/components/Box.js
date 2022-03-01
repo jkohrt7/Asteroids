@@ -1,16 +1,22 @@
 import { Canvas, useFrame } from '@react-three/fiber';
 import { useRef } from 'react';
+import * as THREE from 'three'
 
 function Box(props) {
-    const mesh = useRef();
-    // rotate the box
+    const dummy = new THREE.Vector3()
+
     useFrame((state, delta) => {
-      mesh.current.rotation.x = mesh.current.rotation.y += 0.01
-    });
+        const step = 0.1;
+
+        state.camera.position.lerp(dummy.set(0, 0, props.zoom ? props.zoom : 10), step)
+
+        state.camera.updateProjectionMatrix()
+    })
+
     // draw the box
     return (
-      <mesh {...props} ref={mesh}>
-        <boxGeometry args={[1, 1, 1]} />
+      <mesh>
+        <boxGeometry  args={[props.size, props.size, props.size]} />
         <meshStandardMaterial color="#FFAE00" />
       </mesh>
     );
