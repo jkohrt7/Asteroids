@@ -52,23 +52,31 @@
   background-color: var(--darkest-black);
   z-index: "10000";
 }
-
-.header {
-  font-size: xx-large;
-  color: var(--lightest-grey);
+/* Header and sub-header */
+.header-container {
   background-color: var(--dark-grey);
 
   padding: 1rem;
   text-align: center;
 }
 
+.header {
+  font-size: xx-large;
+  color: var(--lightest-grey);
+}
+
+.sub-header {
+  font-size: large;
+  color: var(--light-grey);
+}
+
 /* The table */
 .list-container {
   display: block;
-  height: 85%;
+  height: 80%;
   overflow: auto;
 
-  padding: 0 1rem 1rem 1rem;
+  padding: 0 1rem 2rem 1rem;
 }
 
 .list-container table {

@@ -64,7 +64,7 @@ function App() {
             data = {allAsteroidData}
           />
           <Astronaut scale = {[0.01,0.01,0.01]} />
-          <SpaceBG position = {[0,0,-50]}/>
+          <SpaceBG position = {[0,0,0]}/>
         </Suspense>
       </BasicScene>
       <AsteroidList data = {allAsteroidData} currAsteroid = {currAsteroid} asteroidSetter = {setCurrAsteroid} />

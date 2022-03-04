@@ -10,7 +10,7 @@ function Box(props) {
     // draw the box
     return (
       <mesh {...props} ref={mesh}>
-        <sphereGeometry args={[400, 32, 32]}/>
+        <sphereGeometry args={[500, 32, 32]}/>
         <meshStandardMaterial color = '#FFFFFF' side={BackSide} map = {colorMap} />
       </mesh>
     );

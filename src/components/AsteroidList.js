@@ -31,8 +31,9 @@ function AsteroidList(props) {
     return (
         <div className = "outermost-container" >
             <div className = "menu-container">
-                <div className = "header">
-                    Asteroid Tracker
+                <div className = "header-container">
+                    <div className = "header">Asteroid Tracker</div>
+                    <div className = "sub-header">Your daily dose of anxiety.</div>
                 </div>
                 <div className = "list-container">
                     <table>
