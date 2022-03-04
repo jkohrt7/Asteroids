@@ -25,7 +25,6 @@ export default function Astronaut({ ...props }) {
   useEffect(() => {
     setTimeout(() => {
       setMove(!moveUp)
-      console.log("HI")
     }, 4000)
   }, [moveUp])
 
