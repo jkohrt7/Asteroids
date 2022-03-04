@@ -25,6 +25,7 @@ function AsteroidList(props) {
     function setAsteroid(id) {
         let asteroid = props.data.find(element => element.id === id)
         props.asteroidSetter(asteroid)
+        console.log(asteroid)
     }
 
     return (

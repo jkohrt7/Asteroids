@@ -56,11 +56,16 @@ function App() {
   return (
     <div id = "main-container">
       <BasicScene>
-        {/* <Suspense fallback = {null}>
-          <Asteroid zoom = {1} position = {[.5,0,0]} scale = {0.1} data = {allAsteroidData}/>
+        <Suspense fallback = {null}>
+          <Asteroid 
+            zoom = {currAsteroid.estimated_diameter.feet.estimated_diameter_min * 0.16666} 
+            position = {[currAsteroid.estimated_diameter.feet.estimated_diameter_min*0.083333,0,0]} 
+            scale = {currAsteroid ? (currAsteroid.estimated_diameter.feet.estimated_diameter_min * .016666) : .1} 
+            data = {allAsteroidData}
+          />
           <Astronaut scale = {[0.01,0.01,0.01]} position = {[0,0,0]}/>
           <SpaceBG position = {[0,0,-50]}/>
-        </Suspense> */}
+        </Suspense>
       </BasicScene>
       <AsteroidList data = {allAsteroidData} currAsteroid = {currAsteroid} asteroidSetter = {setCurrAsteroid} />
     </div>
