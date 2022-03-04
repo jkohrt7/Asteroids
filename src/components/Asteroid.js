@@ -17,7 +17,7 @@ function Asteroid(props) {
     // Moving the camera based on asteroid size
     const camVec = new THREE.Vector3()
     useFrame((state, delta) => {
-        const step = 0.05;
+        const step = 0.04;
 
         state.camera.position.lerp(camVec.set(0, 0, props.zoom ? props.zoom : 10), step)
 

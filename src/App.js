@@ -63,7 +63,7 @@ function App() {
             scale = {currAsteroid ? (currAsteroid.estimated_diameter.feet.estimated_diameter_min * .016666) : .1} 
             data = {allAsteroidData}
           />
-          <Astronaut scale = {[0.01,0.01,0.01]} position = {[0,0,0]}/>
+          <Astronaut scale = {[0.01,0.01,0.01]} />
           <SpaceBG position = {[0,0,-50]}/>
         </Suspense>
       </BasicScene>
