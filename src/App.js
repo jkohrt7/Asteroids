@@ -58,8 +58,8 @@ function App() {
       <BasicScene>
         <Suspense fallback = {null}>
           <Asteroid 
-            zoom = {currAsteroid.estimated_diameter.feet.estimated_diameter_min * 0.16666} 
-            position = {[currAsteroid.estimated_diameter.feet.estimated_diameter_min*0.083333,0,0]} 
+            zoom = {(currAsteroid ? currAsteroid.estimated_diameter.feet.estimated_diameter_min * 0.16666:1)} 
+            position = {[(currAsteroid ? currAsteroid.estimated_diameter.feet.estimated_diameter_min*0.083333 : .5),0,0]} 
             scale = {currAsteroid ? (currAsteroid.estimated_diameter.feet.estimated_diameter_min * .016666) : .1} 
             data = {allAsteroidData}
           />
