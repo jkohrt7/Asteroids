@@ -15,7 +15,7 @@ export default function Astronaut({ ...props }) {
   const { nodes, materials } = useGLTF('Astronaut_compressed.glb')
 
   //makes the astronaut float up and down.
-  const [moveUp, setMove] = useState(false)
+  const [moveUp, setMove] = useState(true)
 
   const {position} = useSpring({ 
     position: moveUp ? [0,0.08,0] : [0,-0.08,0],
