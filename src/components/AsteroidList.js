@@ -51,7 +51,7 @@ function AsteroidList(props) {
         }
         else if(colName === "date") {
             sortedData = sortedData.sort((a,b) => {
-                if(a.name > b.name) {return -1};
+                if(a.close_approach_data[0].close_approach_date > b.close_approach_data[0].close_approach_date) {return -1};
                 if(a.name < b.name) {return 1};
                 return 0;
             })
