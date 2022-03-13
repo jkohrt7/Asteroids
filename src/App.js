@@ -67,7 +67,7 @@ function App() {
           <SpaceBG position = {[0,0,0]}/>
         </Suspense>
       </BasicScene>
-      <AsteroidList data = {allAsteroidData} currAsteroid = {currAsteroid} asteroidSetter = {setCurrAsteroid} />
+      <AsteroidList data = {allAsteroidData} setAsteroidData = {setAsteroidData} currAsteroid = {currAsteroid} asteroidSetter = {setCurrAsteroid} />
     </div>
   );
 }

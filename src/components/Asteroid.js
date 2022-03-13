@@ -9,19 +9,20 @@ import { MeshDistortMaterial, useNormalTexture } from '@react-three/drei';
 function Asteroid(props) {
     const mesh = useRef();
 
-    // rotate the asteroid
-    useFrame(() => {
-        mesh.current.rotation.x = mesh.current.rotation.y += 0.001
-    });
-
     // Moving the camera based on asteroid size
     const camVec = new THREE.Vector3()
     useFrame((state, delta) => {
+        mesh.current.rotation.x = mesh.current.rotation.y += 0.001
+
         const step = 0.04;
 
-        state.camera.position.lerp(camVec.set(0, 0, props.zoom ? props.zoom : 10), step)
+        //cap the camera movement so you don't clip out of the bounding box
+        let zoomTo = (props.zoom > 416) ? 416 : props.zoom;
+
+        state.camera.position.lerp(camVec.set(0, 0, zoomTo ? zoomTo : 10), step)
 
         state.camera.updateProjectionMatrix()
+
     })
     
     //For texturing the asteroid

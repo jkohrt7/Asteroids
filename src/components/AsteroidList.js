@@ -3,6 +3,7 @@ import { useEffect } from 'react';
 
 function AsteroidList(props) {
 
+    //Uses the list of asteroids in props to build table rows.
     function renderListItems(data) {
         let tableRowHTML = data.map((item, index) => {
             return(
@@ -28,6 +29,39 @@ function AsteroidList(props) {
         console.log(asteroid)
     }
 
+    //Sorts the asteroid data by name, size or passing date
+    function sortBy(colName) {
+        //Get values of original array, not the reference
+        let sortedData = props.data.slice(0);
+
+        //Sort contents based on what column was clicked
+        if(colName === "name") {
+            sortedData = sortedData.sort((a,b) => {
+                if(a.name > b.name) {return -1};
+                if(a.name < b.name) {return 1};
+                return 0;
+            });
+        }
+        else if(colName === "size") {
+            sortedData = sortedData.sort((a,b) => {
+                if(a.estimated_diameter.feet.estimated_diameter_min > b.estimated_diameter.feet.estimated_diameter_min) {return -1};
+                if(a.estimated_diameter.feet.estimated_diameter_min < b.estimated_diameter.feet.estimated_diameter_min) {return 1};
+                return 0;
+            })
+        }
+        else if(colName === "date") {
+            sortedData = sortedData.sort((a,b) => {
+                if(a.name > b.name) {return -1};
+                if(a.name < b.name) {return 1};
+                return 0;
+            })
+        }
+
+        //set parent state with sorted values, triggering re-render of AsteroidList
+        props.setAsteroidData(sortedData);
+    }
+
+    //Returns the AsteroidList component
     return (
         <div className = "outermost-container" >
             <div className = "menu-container">
@@ -39,13 +73,13 @@ function AsteroidList(props) {
                     <table>
                         <thead>
                             <tr className = "table-header">
-                                <th>Name</th>
-                                <th>Size (min)</th>
-                                <th>Passes on</th>
+                                <th onClick = {() => sortBy("name")}>Name</th>
+                                <th onClick = {() => sortBy("size")}>Size (min)</th>
+                                <th onClick = {() => sortBy("date")}>Passes on</th>
                             </tr>
                         </thead>
                         <tbody>
-                            {props.data ? renderListItems(props.data) : null}
+                            {props.data ? renderListItems(props.data) : <tr><td className = "loading-text">Loading, please wait...</td></tr>}
                         </tbody>
                     </table>
                 </div>
