@@ -4,6 +4,7 @@ import Astronaut from './components/Astronaut_compressed.js';
 import SpaceBG from './components/SpaceBG';
 import BasicScene from './components/BasicScene';
 import AsteroidList from './components/AsteroidList';
+import Asteroid_UI from './components/Asteroid_UI';
 
 import { Canvas, useFrame } from '@react-three/fiber';
 import { useState, useEffect, Suspense } from 'react';
@@ -14,14 +15,11 @@ function App() {
   
   //Controls the camera position.
   const [zoom, setZoom] = useState(1);
-  function moveCamera() {
-    let newZoom = zoom + 50;
-    setZoom(newZoom);
-  }
 
   //Get a list of asteroids passing in the next week from the NASA NEO api
   const [allAsteroidData, setAsteroidData] = useState(false);
   useEffect(() => {
+      //Need the curr date in a certain format to make an API call.
       let today = new Date();
 
       let dd = String(today.getDate()).padStart(2, '0');
@@ -30,6 +28,7 @@ function App() {
 
       today = yyyy + '-' + mm + '-' + dd;
 
+      //Fetch the data using the formatted date
       fetch(`https://api.nasa.gov/neo/rest/v1/feed?start_date=${today}&end_data=${today}&api_key=hMvAKv2iX56ehyLToioQbO6OMPqUmVH9HTDQEJhe`)
           .then(res => res.json())
           .then(data => {
@@ -53,6 +52,7 @@ function App() {
   //Keep track of the selected asteroid
   const [currAsteroid, setCurrAsteroid] = useState(false);
 
+  //Return the component
   return (
     <div id = "main-container">
       <BasicScene>
@@ -68,6 +68,7 @@ function App() {
         </Suspense>
       </BasicScene>
       <AsteroidList data = {allAsteroidData} setAsteroidData = {setAsteroidData} currAsteroid = {currAsteroid} asteroidSetter = {setCurrAsteroid} />
+      {currAsteroid ? <Asteroid_UI currAsteroid = {currAsteroid}/> : ""}
     </div>
   );
 }

@@ -1,0 +1,56 @@
+.UI-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+
+  position: absolute;
+  top: 0;
+  right: 0;
+
+  width: 66vw;
+  height: 100vh;
+}
+
+.UI-top {
+  top: 0;
+
+  margin-top: 2rem;
+  margin-right: 3rem;
+  margin-left: 3rem;
+
+  font-size: 3.5rem;
+  color: white;
+  text-align: center;
+}
+
+.UI-bottom {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+
+  margin-bottom: 5rem;
+  margin-right: 3rem;
+  margin-left: 3rem;
+
+  text-align: center;
+  line-height: 2rem;
+}
+
+.UI-bottom-title {
+  color: var(--light-grey);
+}
+
+.UI-data {
+  color: white;
+  font-size: larger;
+}
+
+.UI-data-danger {
+  color: rgb(255, 60, 60);
+  font-size: larger;
+}
+
+.UI-data-safe {
+  color: rgb(98, 241, 69);
+  font-size: larger;
+}
