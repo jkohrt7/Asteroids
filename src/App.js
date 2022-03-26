@@ -5,11 +5,13 @@ import SpaceBG from './components/SpaceBG';
 import BasicScene from './components/BasicScene';
 import AsteroidList from './components/AsteroidList';
 import Asteroid_UI from './components/Asteroid_UI';
+import Statue from './components/Statue_compressed';
 
 import { Canvas, useFrame } from '@react-three/fiber';
 import { useState, useEffect, Suspense } from 'react';
 
 import './App.css'
+import { TextGeometry } from 'three';
 
 function App() {
   
@@ -64,6 +66,7 @@ function App() {
             data = {allAsteroidData}
           />
           <Astronaut scale = {[0.01,0.01,0.01]} />
+          <Statue scale = {[0.25416,0.25416,0.25416]} position = {[-10,-15,0]}/>
           <SpaceBG position = {[0,0,0]}/>
         </Suspense>
       </BasicScene>
