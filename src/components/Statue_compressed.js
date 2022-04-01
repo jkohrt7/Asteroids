@@ -14,7 +14,7 @@ extend({TextGeometry})
 
 export default function Statue({ ...props }) {
   const group = useRef()
-  const { nodes, materials } = useGLTF('/statue_compressed.glb')
+  const { nodes, materials } = useGLTF('models/statue_compressed.glb')
 
   const font = new FontLoader().parse(roboto)
 
@@ -41,4 +41,4 @@ export default function Statue({ ...props }) {
   )
 }
 
-useGLTF.preload('/statue_compressed.glb')
+useGLTF.preload('models/statue_compressed.glb')

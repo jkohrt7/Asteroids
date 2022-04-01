@@ -12,7 +12,7 @@ import { flip } from 'lodash';
 export default function Astronaut({ ...props }) {
 
   const group = useRef()
-  const { nodes, materials } = useGLTF('Astronaut_compressed.glb')
+  const { nodes, materials } = useGLTF('models/Astronaut_compressed.glb')
 
   //makes the astronaut float up and down.
   const [moveUp, setMove] = useState(true)
@@ -39,4 +39,4 @@ export default function Astronaut({ ...props }) {
   )
 }
 
-useGLTF.preload('/Astronaut_compressed.glb')
+useGLTF.preload('models/Astronaut_compressed.glb')
